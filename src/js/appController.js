@@ -6,7 +6,7 @@
 /*
  * Your application specific code will go here
  */
-define(['ojs/ojcore', 'knockout', 'ojs/ojknockout'],
+define(['ojs/ojcore', 'knockout', 'ojs/ojknockout', 'ojs/ojmodule'],
   function(oj, ko) {
      function ControllerViewModel() {
        var self = this;
@@ -17,9 +17,12 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojknockout'],
 
       // Header
       // Application Name used in Branding Area
-      self.appName = ko.observable("App Name");
+      self.appName = ko.observable("Notice Board");
+      self.loggedIn = ko.observable(false);
       // User Info used in Global Navigation area
       self.userLogin = ko.observable("john.hancock@oracle.com");
+      self.currentModule = ko.observable("login");
+      self.modulePath = {name : 'login'};
 
       // Footer
       function footerLink(name, id, linkTarget) {

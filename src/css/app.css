@@ -1,7 +1,9 @@
-/*
-    Document   : override
-    Created on : <date>
-    Author     : <author>
-    Description:
-        This is where any of your application specific styles should be included
-*/
+.login-panel {
+    position: fixed;
+    top: 40%;
+    right: 50%;
+    width: 25vw;
+    height: 22vh;
+    transform: translate(50%, -50%);
+    text-align: center;
+}
