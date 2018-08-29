@@ -31,25 +31,18 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="viewport-fit=cover, width=device-width, initial-scale=1">
-    <link rel="icon"
-          href="css/images/favicon.ico"
-          type="image/x-icon" />
+    <link rel="icon" href="css/images/favicon.ico" type="image/x-icon" />
 
     <!-- This is the main css file for the default Alta theme -->
     <!-- injector:theme -->
-    <link rel="stylesheet"
-          href="css/libs/oj/v5.2.0/alta/oj-alta-min.css"
-          type="text/css" />
+    <link rel="stylesheet" href="css/libs/oj/v5.2.0/alta/oj-alta-min.css" type="text/css" />
     <!-- endinjector -->
     <!-- This contains icon fonts used by the starter template -->
-    <link rel="stylesheet"
-          href="css/demo-alta-site-min.css"
-          type="text/css" />
+    <link rel="stylesheet" href="css/demo-alta-site-min.css" type="text/css" />
 
     <!-- This is where you would add any app specific styling -->
-    <link rel="stylesheet"
-          href="css/app.css"
-          type="text/css" />
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <base href="http://localhost:8000" target="_blank">
 
 </head>
 
@@ -80,16 +73,17 @@
                         <oj-menu-button id="userMenu"
                                         display="[[smScreen() ? 'icons' : 'all']]"
                                         chroming="half">
-                            <span><oj-bind-text value="[[userLogin]]"></oj-bind-text></span>
+                            <span><oj-bind-text value="[[username]]"></oj-bind-text></span>
                             <span slot="endIcon"
                                   :class="[[{'oj-icon demo-appheader-avatar': smScreen(), 'oj-component-icon oj-button-menu-dropdown-icon': !smScreen()}]]"></span>
                             <oj-menu id="menu1"
                                      slot="menu"
-                                     style="display:none">
-                                <oj-option id="pref" value="pref">Preferences</oj-option>
+                                     style="display:none"
+                                     on-oj-action=[[userMenuSelect]]>
+                                <!-- <oj-option id="pref" value="pref">Preferences</oj-option>
                                 <oj-option id="help" value="help">Help</oj-option>
-                                <oj-option id="about" value="about">About</oj-option>
-                                <oj-option id="out" value="out">Sign Out</oj-option>
+                                <oj-option id="about" value="about">About</oj-option> -->
+                                <oj-option value="out">Log Out</oj-option>
                             </oj-menu>
                         </oj-menu-button>
                     </oj-toolbar>
@@ -103,7 +97,7 @@
                 </div>
             <!-- /ko -->
             <!-- ko if: loggedIn() -->
-                Dashboard
+                <div data-bind="ojModule: loggedInConfig"></div>
             <!-- /ko -->
         </div>
         <!-- <footer class="oj-web-applayout-footer" role="contentinfo">
