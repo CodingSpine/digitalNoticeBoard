@@ -6,8 +6,8 @@
 /*
  * Your application specific code will go here
  */
-define(['ojs/ojcore', 'knockout', 'ojs/ojknockout', 'ojs/ojmodule'],
-  function(oj, ko) {
+define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojknockout', 'ojs/ojmodule'],
+  function(oj, ko, context) {
      function ControllerViewModel() {
        var self = this;
 
@@ -23,6 +23,10 @@ define(['ojs/ojcore', 'knockout', 'ojs/ojknockout', 'ojs/ojmodule'],
       self.userLogin = ko.observable("john.hancock@oracle.com");
       self.currentModule = ko.observable("login");
       self.modulePath = {name : 'login'};
+
+      context.loggedIn.subscribe(function(newValue){
+          self.loggedIn(newValue);
+      });
 
       // Footer
       function footerLink(name, id, linkTarget) {
