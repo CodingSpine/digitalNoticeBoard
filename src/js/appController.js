@@ -39,6 +39,9 @@ define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojknockout', 'ojs/ojmodu
             context.loggedIn.subscribe(function(newValue) {
                 self.loggedIn(newValue);
                 self.username(context.username());
+                if (newValue === true) {
+                    router.go('dashboard');
+                }
             });
 
             self.userMenuSelect = function(event) {
@@ -46,6 +49,7 @@ define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojknockout', 'ojs/ojmodu
                 if (selectedValue === 'out'){
                     context.username('');
                     context.loggedIn(false);
+                    window.location.href = base;
                 }
             }
 

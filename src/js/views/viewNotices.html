@@ -1,42 +1,33 @@
 viewNotices screen
+<div class="filmstrip-primary">
+    <oj-film-strip
+                 arrow-placement="adjacent"
+                 arrow-visibility="visible"
+                 current-item.index="[[clickedIndex]]">
+              <!-- ko foreach: chemicals -->
+              <div class="oj-panel oj-panel-alt2 primary-filmstrip-item"
+                   data-bind="style: {
+                     display: $parent.getItemInitialDisplay($index())}">
+                <img data-bind="attr: {src: location}" style="width: 50vh; height: 70vh">
+              </div>
+              <!-- /ko -->
+            </oj-film-strip>
+</div>
 
-
-<oj-film-strip id="filmStrip"
-     aria-label="Hydrogen compounds"
-     style="margin-top: 5px;"
-     arrow-visibility="hidden"
-     data-oj-context>
-  <div class="oj-panel oj-panel-alt2 demo-filmstrip-item">
-    <div>H<sub>2</sub>O</div>
-    <div>Water</div>
-  </div>
-  <div class="oj-panel oj-panel-alt2 demo-filmstrip-item">
-    <div>C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></div>
-    <div>Glucose</div>
-  </div>
-  <div class="oj-panel oj-panel-alt2 demo-filmstrip-item">
-    <div>HCl</div>
-    <div>Hydrogen chloride</div>
-  </div>
-  <div class="oj-panel oj-panel-alt2 demo-filmstrip-item">
-    <div>H<sub>2</sub>S</div>
-    <div>Hydrogen sulphide</div>
-  </div>
-  <div class="oj-panel oj-panel-alt2 demo-filmstrip-item">
-    <div>NH<sub>3</sub></div>
-    <div>Ammonia</div>
-  </div>
-  <div class="oj-panel oj-panel-alt2 demo-filmstrip-item">
-    <div>HF</div>
-    <div>Hydrogen fluoride</div>
-  </div>
-</oj-film-strip>
-<div style="text-align: center;">
-  <div style="display: inline-block;">
-   <oj-paging-control
-       data="[[pagingModel]]"
-       page-size="0"
-       page-options='{"type": "dots"}'>
-    </oj-paging-control>
-  </div>
+<div class="filmstrip-paging">
+    <oj-film-strip id="filmStrip" style="margin-top: 5px;" arrow-visibility="hidden" data-oj-context>
+        <!-- ko foreach: chemicals -->
+        <div class="oj-panel oj-panel-alt2 thumbnail-filmstrip-item"
+             data-bind="style: {
+               display: $parent.getItemInitialDisplay($index())}, click: function(){$parent.thumbnailClick($index())}">
+          <img data-bind="attr: {src: location}" style="width: 50px; height: 70px">
+        </div>
+        <!-- /ko -->
+    </oj-film-strip>
+    <div style="text-align: center;">
+        <div style="display: inline-block;">
+            <oj-paging-control data="[[pagingModel]]" page-size="0" page-options='{"type": "dots"}'>
+            </oj-paging-control>
+        </div>
+    </div>
 </div>

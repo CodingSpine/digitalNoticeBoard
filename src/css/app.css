@@ -14,3 +14,37 @@
     margin-top: 10px;
     box-sizing: border-box;
 }
+
+oj-film-strip {
+    outline: none;
+}
+
+.filmstrip-primary {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.filmstrip-paging {
+    position: absolute;
+    bottom: 10px;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.primary-filmstrip-item {
+    width: 50vh;
+    height: 70vh;
+    margin: 0 30vh;
+    padding: 0;
+}
+
+.filmstrip-paging oj-film-strip {
+    width: 500px;
+}
+
+.thumbnail-filmstrip-item {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    cursor: pointer;
+}

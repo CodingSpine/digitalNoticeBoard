@@ -3,6 +3,21 @@ define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojinputtext', 'ojs/ojbut
         function viewNoticesViewModel() {
             var self = this;
             self.pagingModel = ko.observable(null);
+            self.clickedIndex = ko.observable(0);
+
+            self.chemicals = [
+                {location: '../../css/images/1.png'},
+                {location: '../../css/images/2.jpg'}
+            ];
+
+            self.getItemInitialDisplay = function(index){
+                return index < 2 ? '' : 'none';
+            };
+
+            self.thumbnailClick = function(index){
+                self.clickedIndex(index);
+            };
+
             this.handleBindingsApplied = function() {
                 var filmStrip = document.getElementById('filmStrip');
                 var busyContext = oj.Context.getContext(filmStrip).getBusyContext();
