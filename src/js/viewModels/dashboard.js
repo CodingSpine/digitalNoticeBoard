@@ -21,7 +21,7 @@ define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojlistview', 'ojs/ojinpu
 
             self.createNewNotice = function(){
                 var router = oj.Router.rootInstance;
-                router.go('createNewNotice');
+                router.go('createNoticeP1');
             };
 
             self.openSlideShow = function(){

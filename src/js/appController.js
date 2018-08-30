@@ -32,7 +32,10 @@ define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojknockout', 'ojs/ojmodu
             router.configure(
                 {
                     'dashboard':  { label: 'Dashboard', value: 'dashboard', isDefault: true },
-                    'viewNotices': { label: 'View Notices', value: 'viewNotices' }
+                    'viewNotices': { label: 'View Notices', value: 'viewNotices' },
+                    'createNoticeP1': { label: 'Create Notices', value: 'createNoticeP1' },
+                    'createNoticeP2': { label: 'Create Notices', value: 'createNoticeP2' },
+                    'createNoticeP3': { label: 'Create Notices', value: 'createNoticeP3' }
                 }
             );
 
@@ -55,6 +58,18 @@ define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojknockout', 'ojs/ojmodu
 
             self.goToViewNotices = function(){
 
+            };
+            
+            self.createNewNotice = function(){
+                
+            };
+            
+            self.goToNextPage2 = function(){
+                
+            };
+            
+            self.goToNextPage3 = function(){
+                
             };
 
             self.loggedInConfig = ko.pureComputed(function() {
