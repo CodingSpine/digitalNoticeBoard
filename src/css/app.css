@@ -15,6 +15,30 @@
     box-sizing: border-box;
 }
 
+.dashboard-primary-section {
+    max-width: 1200px;
+    text-align: center;
+}
+
+.review-btn {
+    width:100px;
+    position:relative;
+    line-height:50px;
+}
+
+.notification {
+    position:absolute;
+    left:-7px;
+    top:-7px;
+    background-color:green;
+    line-height:20px;
+    width:20px;
+    height:20px;
+    border-radius:10px;
+    font-weight: bold;
+    color: white;
+}
+
 oj-film-strip {
     outline: none;
 }

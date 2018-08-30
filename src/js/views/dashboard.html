@@ -1,1 +1,26 @@
 <oj-button on-oj-action="[[goToViewNotices]]">View Notices</oj-button>
+
+
+<div class="dashboard-primary-section">
+    <div class="oj-flex oj-sm-flex-items-1 dashboard-row1">
+        <div class="oj-flex-item" style="width: 50%">
+            <!-- <oj-button on-oj-action="[[reviewNewNotices]]">Review</oj-button> -->
+            <button class="review-btn" data-bind="click: reviewNewNotices, disable: noOfReviews() === 0">Review
+                <span class="notification" data-bind="text: noOfReviews"></span>
+            </button>
+        </div>
+        <div class="oj-flex-item">
+            <oj-button on-oj-action="[[createNewNotice]]">Create New</oj-button>
+        </div>
+    </div>
+    <div class="oj-flex oj-sm-flex-items-1 dashboard-row2">
+        <div class="oj-flex-item">
+            <h4>Recent Notices</h4>
+        </div>
+        <div class="oj-flex-item">
+            <video src="" autoplay poster="../../images/1.png">
+
+            </video>
+        </div>
+    </div>
+</div>
