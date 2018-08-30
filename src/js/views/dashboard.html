@@ -1,10 +1,11 @@
-<oj-button on-oj-action="[[goToViewNotices]]">View Notices</oj-button>
+<div class="dashboard-header">
+View recent notices or submit a new one.
+</div>
 
 
 <div class="dashboard-primary-section">
     <div class="oj-flex oj-sm-flex-items-1 dashboard-row1">
         <div class="oj-flex-item" style="width: 50%">
-            <!-- <oj-button on-oj-action="[[reviewNewNotices]]">Review</oj-button> -->
             <button class="review-btn" data-bind="click: reviewNewNotices, disable: noOfReviews() === 0">Review
                 <span class="notification" data-bind="text: noOfReviews"></span>
             </button>
@@ -16,11 +17,77 @@
     <div class="oj-flex oj-sm-flex-items-1 dashboard-row2">
         <div class="oj-flex-item">
             <h4>Recent Notices</h4>
+            <oj-list-view selection-mode="none">
+            <ul>
+                <li>
+                    <div class="container">
+                        <div>
+                            <span class="name">Amy Bartlet</span>
+                        </div>
+                        <div>
+                            <span class="oj-text-xs oj-text-secondary-color">Vice President</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="container">
+                        <div>
+                            <span class="name">Andy Jones</span>
+                        </div>
+                        <div>
+                            <span class="oj-text-xs oj-text-secondary-color">Director</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="container">
+                        <div>
+                            <span class="name">Andrew Bugsy</span>
+                        </div>
+                        <div>
+                            <span class="oj-text-xs oj-text-secondary-color">Individual Contributer</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="container">
+                        <div>
+                            <span class="name">Annett Barnes</span>
+                        </div>
+                        <div>
+                            <span class="oj-text-xs oj-text-secondary-color">Individual Contributer</span>
+                        </div>
+                     </div>
+                </li>
+            </ul>
+        </oj-list-view>
         </div>
         <div class="oj-flex-item">
-            <video src="" autoplay poster="../../images/1.png">
-
-            </video>
+            <div data-bind="click: openSlideShow"
+                    style="width: 300px; height: 200px; position: relative; margin: auto;background-color: black;">
+                <span class="slideshow-play-btn">
+                    <i class="fas fa-play-circle"></i>
+                </span>
+            </div>
         </div>
     </div>
 </div>
+
+
+<oj-dialog style="display:none; width: 100vw; height: 100vh;" id="slideshowDialog"
+            cancel-behavior="escape">
+    <div slot="body">
+        <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">
+            <div class="oj-flex-item" id="slideshow">
+                <div>
+                    <img data-bind="attr: {src: locations[0]}" style="width: 50vh; height: 70vh">
+                </div>
+                <div>
+                    <img data-bind="attr: {src: locations[1]}" style="width: 50vh; height: 70vh">
+                </div>
+            </div>
+        </div>
+    </div>
+</oj-dialog>
+
+<oj-button on-oj-action="[[goToViewNotices]]">View Notices</oj-button>

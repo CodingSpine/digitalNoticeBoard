@@ -42,6 +42,8 @@
 
     <!-- This is where you would add any app specific styling -->
     <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300" rel="stylesheet">
     <base href="http://localhost:8000" target="_blank">
 
 </head>
@@ -49,12 +51,6 @@
 <body class="oj-web-applayout-body">
     <div id="globalBody"
          class="oj-web-applayout-page">
-        <!--
-         ** Oracle JET V5.2.0 web application header pattern.
-         ** Please see the demos under Cookbook/Patterns/App Shell: Web
-         ** and the CSS documentation under Support/API Docs/Non-Component Styling
-         ** on the JET website for more information on how to use this pattern.
-      -->
         <header role="banner"
                 class="oj-web-applayout-header">
             <div class="oj-web-applayout-max-width oj-flex-bar oj-sm-align-items-center">
@@ -91,7 +87,7 @@
                 </div>
             </div>
         </header>
-        <div role="main" class="oj-web-applayout-max-width oj-web-applayout-content">
+        <div role="main" class="oj-web-applayout-max-width oj-web-applayout-content" style="padding: 0 0 10px 0">
             <!-- ko if: !loggedIn() -->
                 <div data-bind="ojModule: modulePath" style="background-color:aliceblue">
                 </div>
