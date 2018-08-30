@@ -14,7 +14,7 @@ define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojinputtext', 'ojs/ojbut
 
             self.createNewNotice = function(){
                 var router = oj.Router.rootInstance;
-                router.go('createNewNotice');
+                router.go('createNoticeP1');
             };
         }
 

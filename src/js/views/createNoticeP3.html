@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <h2 class="oj-header-border">New Notice</h2>
+            <div id='buttons-container'>
+                <oj-button id='button1' on-oj-action='[[goBackToPage2]]'>Back</oj-button>
+                <oj-button id='button2' style = "float: right;" on-oj-action='[[goToFinish]]'>Finish</oj-button>
+            </div>
+            <h3 class="oj-header-border">Notice Details</h3>
+            <div id="form-container">
+                <oj-form-layout label-edge="{{labelEdge}}">
+            <oj-input-text id="control1" required value="mm/dd/yyyy" label-hint="Time Period"></oj-input-text>
+            <oj-input-text id="control1" required value="your name?" label-hint="Submitted By"></oj-input-text>
+            <oj-input-text id="control1" required value="review required?" label-hint="To be Reviewd By"></oj-input-text>
+            <oj-label for="basicSelect">Which Region Do you want to publish the notice?</oj-label>
+          <oj-select-one id="basicSelect" value="{{val}}" style="max-width:20em">
+            <oj-option value="EU">Europe Region</oj-option>
+            <oj-option value="Asian">South Asian Region</oj-option>
+            <oj-option value="Japan">Japan Region</oj-option>
+            <oj-option value="African">African Region</oj-option>
+            <oj-option value="Arabic">Arabic Region</oj-option>
+          </oj-select-one>
+          </oj-form-layout>
+            </div>
+        </div>
+    </body>
+</html>
