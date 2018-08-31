@@ -1,3 +1,17 @@
+.login-page::after {
+    content: "";
+  background: url(images/BackgroundCompetition.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
 .login-panel {
     position: fixed;
     top: 40%;
@@ -6,13 +20,25 @@
     height: 205px;
     transform: translate(50%, -50%);
     text-align: center;
+    background-color: #50aaea;
+    color: white;
+    border-radius: 5px;
 }
 
 .login-button {
-    width: 100%;
+    width: 150px;
     padding: 0 2px;
     margin-top: 10px;
     box-sizing: border-box;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+}
+
+.login-button button {
+    border-radius: 16px;
+    background-color: #2EE59D !important;
+    color: white !important;
+    border: none !important;
 }
 
 .dashboard-header {
@@ -56,10 +82,10 @@
     left:-7px;
     top:-7px;
     background-color:red;
-    line-height:20px;
-    width:20px;
-    height:20px;
-    border-radius:10px;
+    line-height:22px;
+    width:23px;
+    height:22px;
+    border-radius:11px;
     font-weight: bold;
     color: white;
 }
@@ -151,4 +177,35 @@ oj-film-strip {
 .new-notice-container {
     max-width: 1200px;
     margin: auto;
+}
+
+#loader img, #tick img {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate3d(50%, -50%, 0);
+}
+
+.circlebutton {
+    width: 35px;
+    height: 35px;
+    padding: 5px 8px;
+    margin: 0 2px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    user-select: none;
+    background-image: none;
+    -webkit-appearance: button;
 }

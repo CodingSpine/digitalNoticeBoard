@@ -1,0 +1,51 @@
+<div class="dashboard-header">
+Review Notices
+</div>
+
+<oj-button on-oj-action='[[goToDashboard]]'>
+    <span slot='startIcon'><i class="fas fa-home"></i></span>
+    Home
+</oj-button>
+<div class="oj-flex">
+    <div class="oj-flex-item" style="width: 60%">
+        <div class="review-list">
+            <oj-list-view data="[[dataProvider]]" selection-mode="single">
+                <template slot="itemTemplate">
+                    <div class="oj-flex" style="flex-wrap: nowrap" data-bind="click: function(){updateImage($current.data.src)}">
+                        <span class="oj-flex-item" data-bind="style: { backgroundImage: 'url(\'../../css/images/thumbnail.png\')',
+                         backgroundRepeat: 'no-repeat', backgroundSize: '40px 40px', minHeight: '40px', minWidth: '40px', maxWidth: '40px',
+                     marginRight: '10px' }">
+                        </span>
+                        <div class="oj-flex-item">
+                            <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-space-between">
+                                <div class="oj-flex-item">
+                                    <div>
+                                        <span style="font-weight: bold; font-size: 15px">
+                                            <oj-bind-text value='[[$current.data.name]]'></oj-bind-text>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span class="oj-text-xs oj-text-secondary-color"><oj-bind-text value='[[$current.data.region]]'></oj-bind-text></span>
+                                    </div>
+                                </div>
+                                <div class="oj-flex-item">
+                                    <button class="circlebutton" style="background-color: #47a447" data-bind="click: function(){approveOrReject($current.data)}, clickBubble: false">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="circlebutton" style="background-color: #d2322d" data-bind="click: function(){approveOrReject($current.data)}, clickBubble: false">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+          </oj-list-view>
+        </div>
+    </div>
+    <div class="oj-flex-item" style="width: 40%; height: 70vh;">
+        <div style="width: 100%; height: 100%; padding: 15px; padding-left: 50px; box-sizing: border-box">
+            <img id='reviewImage' data-bind="attr: {src: reviewImageSource}" style="max-width:100%; max-height:100%; background: transparent url(../../css/images/loader.gif) center no-repeat;">
+        </div>
+    </div>
+</div>

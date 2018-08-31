@@ -1,6 +1,6 @@
 define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojinputtext', 'ojs/ojbutton'],
     function (oj, ko, context) {
-        function SearchViewModel() {
+        function loginViewModel() {
             var self = this;
             self.username = ko.observable();
             self.password = ko.observable();
@@ -48,13 +48,13 @@ define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojinputtext', 'ojs/ojbut
                     'userProperName': 'Viewer'
                 },
                 {
-                    'username': 'srishti@oracle.com',
+                    'username': 'srishti.sinha@oracle.com',
                     'password': 'srishti',
                     'userProperName': 'Srishti'
                 }
             ];
         }
 
-        return SearchViewModel;
+        return loginViewModel;
     }
 );

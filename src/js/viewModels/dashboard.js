@@ -1,7 +1,7 @@
 define(['ojs/ojcore', 'knockout', 'jquery', 'globalContext', 'ojs/ojlistview', 'ojs/ojinputtext', 'ojs/ojbutton', 'ojs/ojdialog'],
     function (oj, ko, $, context) {
         function dashboardViewModel() {
-            self.noOfReviews = ko.observable(1);
+            self.noOfReviews = ko.observable(context.noOfReviews());
             self.username = ko.observable(context.username());
             self.reviewsDisabled = ko.computed(function(){
                 return self.noOfReviews() === 0;
@@ -20,7 +20,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'globalContext', 'ojs/ojlistview', '
 
             self.reviewNewNotices = function(){
                 var router = oj.Router.rootInstance;
-                router.go('reviewNewNotices');
+                router.go('reviewNotices');
             };
 
             self.createNewNotice = function(){
@@ -48,7 +48,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'globalContext', 'ojs/ojlistview', '
                     .fadeIn(500)
                     .end()
                     .appendTo('#slideshow');
-                },  5000);
+                },  8000);
             };
         }
 

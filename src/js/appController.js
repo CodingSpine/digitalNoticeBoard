@@ -34,7 +34,8 @@ define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojknockout', 'ojs/ojmodu
                 {
                     'dashboard':  { label: 'Dashboard', value: 'dashboard', isDefault: true },
                     'viewNotices': { label: 'View Notices', value: 'viewNotices' },
-                    'createNotice': { label: 'Create Notice', value: 'createNotice' }
+                    'createNotice': { label: 'Create Notice', value: 'createNotice' },
+                    'reviewNotices': { label: 'Review Notice', value: 'reviewNotices' }
                 }
             );
 

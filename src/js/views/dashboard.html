@@ -7,7 +7,7 @@ View recent notices or submit a new one.
         <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-space-between">
             <div class="oj-flex-item" style="min-width: 6em">
                 <!-- ko if: username() === 'admin' -->
-                    <oj-button on-oj-action="[[createNewNotice]]" disabled="[[reviewsDisabled]]" class="review-btn">
+                    <oj-button on-oj-action="[[reviewNewNotices]]" disabled="[[reviewsDisabled]]" class="review-btn">
                         <span slot="startIcon"><i class="fas fa-gavel"></i></span>
                         <span class="notification" style="padding: 0" data-bind="text: noOfReviews"></span>
                         Review
