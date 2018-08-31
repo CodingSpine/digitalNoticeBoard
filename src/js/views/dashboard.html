@@ -5,18 +5,22 @@ View recent notices or submit a new one.
 <div class="dashboard-primary-section oj-flex oj-sm-flex-items-1">
     <div class="oj-flex-item" style="width: 50%">
         <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-space-between">
-            <div class="oj-flex-item">
-                <oj-button on-oj-action="[[createNewNotice]]" disabled="[[reviewsDisabled]]" class="review-btn">
-                    <span slot="startIcon"><i class="fas fa-gavel"></i></span>
-                    <span class="notification" style="padding: 0" data-bind="text: noOfReviews"></span>
-                    Review
-                </oj-button>
+            <div class="oj-flex-item" style="min-width: 6em">
+                <!-- ko if: username() === 'admin' -->
+                    <oj-button on-oj-action="[[createNewNotice]]" disabled="[[reviewsDisabled]]" class="review-btn">
+                        <span slot="startIcon"><i class="fas fa-gavel"></i></span>
+                        <span class="notification" style="padding: 0" data-bind="text: noOfReviews"></span>
+                        Review
+                    </oj-button>
+                <!-- /ko -->
             </div>
             <div class="oj-flex-item">
-                <oj-button on-oj-action="[[createNewNotice]]" class='oj-button-confirm'>
-                    <span slot="startIcon"><i class="fas fa-plus"></i></span>
-                    Create New
-                </oj-button>
+                <!-- ko ifnot: username() === 'viewer' -->
+                    <oj-button on-oj-action="[[createNewNotice]]" class='oj-button-confirm'>
+                        <span slot="startIcon"><i class="fas fa-plus"></i></span>
+                        Create New
+                    </oj-button>
+                <!-- /ko -->
             </div>
         </div>
         <div class="recent-list">

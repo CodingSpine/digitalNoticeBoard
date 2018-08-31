@@ -2,6 +2,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'globalContext', 'ojs/ojlistview', '
     function (oj, ko, $, context) {
         function dashboardViewModel() {
             self.noOfReviews = ko.observable(1);
+            self.username = ko.observable(context.username());
             self.reviewsDisabled = ko.computed(function(){
                 return self.noOfReviews() === 0;
             }, this);

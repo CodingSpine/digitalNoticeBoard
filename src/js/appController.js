@@ -19,8 +19,9 @@ define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojknockout', 'ojs/ojmodu
             self.appName = ko.observable("Notice Board");
             self.loggedIn = ko.observable(false);
             self.username = ko.observable();
+            self.userProperName = ko.observable();
             self.currentModule = ko.observable("login");
-            self.modulePath = {
+            self.loginPath = {
                 name: 'login'
             };
 
@@ -41,6 +42,7 @@ define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojknockout', 'ojs/ojmodu
                 self.loggedIn(newValue);
                 self.username(context.username());
                 if (newValue === true) {
+                    self.userProperName(context.userProperName());
                     router.go('dashboard');
                 }
             });
@@ -70,7 +72,7 @@ define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojknockout', 'ojs/ojmodu
 
             };
 
-            self.loggedInConfig = ko.pureComputed(function() {
+            self.moduleConfig = ko.pureComputed(function() {
                 /*
                  * Use 'observableModuleConfig' to get acccess to the observable
                  * state parameters.  Referencing this property will also make the
