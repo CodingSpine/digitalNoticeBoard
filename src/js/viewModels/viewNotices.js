@@ -18,6 +18,11 @@ define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojinputtext', 'ojs/ojbut
                 self.clickedIndex(index);
             };
 
+            self.returnHome = function(){
+                var router = oj.Router.rootInstance;
+                router.go('dashboard');
+            };
+
             this.handleBindingsApplied = function() {
                 var filmStrip = document.getElementById('filmStrip');
                 var busyContext = oj.Context.getContext(filmStrip).getBusyContext();

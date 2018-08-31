@@ -1,4 +1,10 @@
-viewNotices screen
+<div class="dashboard-header">
+View Notices
+</div>
+<oj-button on-oj-action="[[returnHome]]" style="margin: 10px 0 0 10px">
+    <span slot='startIcon'><i class="fas fa-home"></i></span>
+    Home
+</oj-button>
 <div class="filmstrip-primary">
     <oj-film-strip
                  arrow-placement="adjacent"
@@ -8,7 +14,7 @@ viewNotices screen
               <div class="oj-panel oj-panel-alt2 primary-filmstrip-item"
                    data-bind="style: {
                      display: $parent.getItemInitialDisplay($index())}">
-                <img data-bind="attr: {src: location}" style="width: 50vh; height: 70vh">
+                <img data-bind="attr: {src: location}" style="width: 48vh; height: 60vh">
               </div>
               <!-- /ko -->
             </oj-film-strip>

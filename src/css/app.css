@@ -32,6 +32,7 @@
     max-width: 1200px;
     margin: auto;
     text-align: center;
+    margin-top: 40px;
 }
 
 .review-btn {
@@ -40,17 +41,40 @@
     line-height:50px;
 }
 
+.review-btn button {
+    background-color: #8F3F9F !important;
+    border-color: transparent !important;
+    color: white !important;
+}
+
+.fa-gavel {
+    color: white;
+}
+
 .notification {
     position:absolute;
     left:-7px;
     top:-7px;
-    background-color:green;
+    background-color:red;
     line-height:20px;
     width:20px;
     height:20px;
     border-radius:10px;
     font-weight: bold;
     color: white;
+}
+
+.recent-list {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.recent-list-item {
+    cursor: pointer;
+}
+
+.name {
+    font-weight: bold;
 }
 
 .slideshow-play-btn {
@@ -74,10 +98,10 @@
 }
 
 #slideshow {
-    margin: 50px auto;
+    margin: 0 auto;
     position: relative;
-    width: 50vh;
-    height: 70vh;
+    width: 60vh;
+    height: 85vh;
     padding: 10px;
     box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
@@ -107,8 +131,8 @@ oj-film-strip {
 }
 
 .primary-filmstrip-item {
-    width: 50vh;
-    height: 70vh;
+    width: 48vh;
+    height: 60vh;
     margin: 0 30vh;
     padding: 0;
 }
@@ -122,4 +146,9 @@ oj-film-strip {
     height: 50px;
     margin: 5px;
     cursor: pointer;
+}
+
+.new-notice-container {
+    max-width: 1200px;
+    margin: auto;
 }

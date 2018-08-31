@@ -1,8 +1,11 @@
-define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojlistview', 'ojs/ojinputtext', 'ojs/ojbutton', 'ojs/ojdialog'],
-    function (oj, ko, context) {
+define(['ojs/ojcore', 'knockout', 'jquery', 'globalContext', 'ojs/ojlistview', 'ojs/ojinputtext', 'ojs/ojbutton', 'ojs/ojdialog'],
+    function (oj, ko, $, context) {
         function dashboardViewModel() {
-            self.noOfReviews = ko.observable(0);
-            //self.imageLocation = ko.observable('../../css/images/1.png');
+            self.noOfReviews = ko.observable(1);
+            self.reviewsDisabled = ko.computed(function(){
+                return self.noOfReviews() === 0;
+            }, this);
+            var slideshowStarted = false;
 
             self.locations = [
                 '../../css/images/1.png',
@@ -21,15 +24,20 @@ define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojlistview', 'ojs/ojinpu
 
             self.createNewNotice = function(){
                 var router = oj.Router.rootInstance;
-                router.go('createNoticeP1');
+                router.go('createNotice');
             };
 
             self.openSlideShow = function(){
                 document.querySelector("#slideshowDialog").open();
-                setTimeout(startSlideShow, 400);
+                var elem = document.documentElement;
+                elem.webkitRequestFullscreen();
+                if (!slideshowStarted){
+                    setTimeout(startSlideShow, 400);
+                }
             };
 
             var startSlideShow = function(){
+                slideshowStarted = true;
                 $("#slideshow > div:gt(0)").hide();
 
                 setInterval(function() {
@@ -40,7 +48,6 @@ define(['ojs/ojcore', 'knockout', 'globalContext', 'ojs/ojlistview', 'ojs/ojinpu
                     .end()
                     .appendTo('#slideshow');
                 },  5000);
-
             };
         }
 

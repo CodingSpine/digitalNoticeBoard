@@ -1,0 +1,113 @@
+<div class="dashboard-header">
+Create New Notice
+</div>
+<div class="new-notice-container">
+    <div id='buttons-container' class="oj-header-border">
+        <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-space-between">
+            <div class="oj-flex-item" style="width: 50%">
+                <!-- ko ifnot: isNotFirstSetOfQuestions() -->
+                <oj-button on-oj-action='[[goToDashboard]]'>
+                    <span slot='startIcon'><i class="fas fa-home"></i></span>
+                    Home
+                </oj-button>
+                <!-- /ko -->
+                <!-- ko if: isNotFirstSetOfQuestions() -->
+                <oj-button on-oj-action='[[slideBack]]'>
+                    <span slot='startIcon'><i class="fas fa-chevron-left"></i></span>
+                    Back
+                </oj-button>
+                <!-- /ko -->
+            </div>
+            <div class="oj-flex-item">
+                <!-- ko ifnot: isNotLastSetOfQuestions() -->
+                <oj-button on-oj-action='[[completeCreation]]' class="oj-button-confirm">
+                    Finish
+                    <span slot='endIcon'><i class="fas fa-chevron-right"></i></span>
+                </oj-button>
+                <!-- /ko -->
+                <!-- ko if: isNotLastSetOfQuestions() -->
+                <oj-button on-oj-action='[[slideForward]]'>
+                    Next
+                    <span slot='endIcon'><i class="fas fa-chevron-right"></i></span>
+                </oj-button>
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+    <div class="createslide-container">
+        <div id="section1">
+            <h3 class="oj-header-border">Notice Details</h3>
+            <div>
+                <oj-form-layout label-edge="{{labelEdge}}">
+                    <oj-input-text id="control1" required placeholder="Name" label-hint="Notice Name"></oj-input-text>
+                    <oj-text-area id="control2" required placeholder='Description' rows="6" label-hint="Description"></oj-text-area>
+                    <oj-input-date required
+                                    min=[[minStartDate]]
+                                    placeholder="mm/dd/yyyy"
+                                    value="{{startDate}}"
+                                    label-hint="Start Display From"></oj-input-date>
+                    <oj-input-date required
+                                    min=[[minEndDate]]
+                                    placeholder="mm/dd/yyyy" label-hint="End Display On"></oj-input-date>
+                </oj-form-layout>
+            </div>
+        </div>
+        <div id="section2" style="display: none">
+            <h3 class="oj-header-border">Upload</h3>
+            <div>
+                <div style="padding:10px">
+                    <oj-file-picker
+                                    selection-mode="[[multipleStr]]"
+                                    on-oj-select='[[selectListener]]'>
+                    </oj-file-picker>
+                    <div style="padding-top:8px"></div>
+                    <!-- <div class="oj-choice-item">
+                        <input type="checkbox" class="oj-checkbox-nocomp"
+                               data-bind="checked: multiple" />
+                        <label for="selection" class="oj-checkbox-label-nocomp">Multiple Selection</label>
+                    </div> -->
+                    <oj-list-view data="[[dataProvider]]" selection-mode="multiple">
+                        <template slot="itemTemplate">
+                            <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-space-between">
+                                <div class="oj-flex-item">
+                                    <oj-bind-text value='[[$current.data.name]]'></oj-bind-text>
+                                </div>
+                                <div class="oj-flex-item">
+                                    <img src="../../css/images/tick.png" alt="" style="width:40px">
+                                </div>
+                            </div>
+                            <span>
+
+                            </span>
+                        </template>
+                    </oj-list-view>
+                </div>
+            </div>
+        </div>
+        <div id="section3" style="display: none">
+            <h3 class="oj-header-border">Finishing Up</h3>
+            <div>
+                <oj-form-layout label-edge="{{labelEdge}}">
+                    <oj-input-text required value="your name?" label-hint="Submitted By"></oj-input-text>
+                    <oj-input-text required value="review required?" label-hint="To be Reviewd By"></oj-input-text>
+                    <oj-label for="basicSelect">Which Region Do you want to publish the notice?</oj-label>
+                    <oj-select-one id="basicSelect" value="{{val}}" style="max-width:20em">
+                        <oj-option value="EU">Europe Region</oj-option>
+                        <oj-option value="Asian">South Asian Region</oj-option>
+                        <oj-option value="Japan">Japan Region</oj-option>
+                        <oj-option value="African">African Region</oj-option>
+                        <oj-option value="Arabic">Arabic Region</oj-option>
+                    </oj-select-one>
+                </oj-form-layout>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loader" style="text-align: center; display: none">
+    <img src="../../css/images/loader.gif" alt="" style="width: 400px">
+</div>
+
+<div id="tick" style="text-align: center; display: none">
+    <img src="../../css/images/tick.png" alt="" style="width: 300px">
+</div>

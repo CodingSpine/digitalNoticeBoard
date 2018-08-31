@@ -2,69 +2,75 @@
 View recent notices or submit a new one.
 </div>
 
-
-<div class="dashboard-primary-section">
-    <div class="oj-flex oj-sm-flex-items-1 dashboard-row1">
-        <div class="oj-flex-item" style="width: 50%">
-            <button class="review-btn" data-bind="click: reviewNewNotices, disable: noOfReviews() === 0">Review
-                <span class="notification" data-bind="text: noOfReviews"></span>
-            </button>
+<div class="dashboard-primary-section oj-flex oj-sm-flex-items-1">
+    <div class="oj-flex-item" style="width: 50%">
+        <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-space-between">
+            <div class="oj-flex-item">
+                <oj-button on-oj-action="[[createNewNotice]]" disabled="[[reviewsDisabled]]" class="review-btn">
+                    <span slot="startIcon"><i class="fas fa-gavel"></i></span>
+                    <span class="notification" style="padding: 0" data-bind="text: noOfReviews"></span>
+                    Review
+                </oj-button>
+            </div>
+            <div class="oj-flex-item">
+                <oj-button on-oj-action="[[createNewNotice]]" class='oj-button-confirm'>
+                    <span slot="startIcon"><i class="fas fa-plus"></i></span>
+                    Create New
+                </oj-button>
+            </div>
         </div>
-        <div class="oj-flex-item">
-            <oj-button on-oj-action="[[createNewNotice]]">Create New</oj-button>
+        <div class="recent-list">
+            <h3>Recent Notices</h3>
+            <oj-list-view selection-mode="single">
+                <ul>
+                    <li data-bind="click: goToViewNotices">
+                        <div class="recent-list-item">
+                            <div>
+                                <span class="name">Unplanned Outage</span>
+                            </div>
+                            <div>
+                                <span class="oj-text-xs oj-text-secondary-color">Chennai: Server Paths are not accessible</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li data-bind="click: goToViewNotices">
+                        <div class="recent-list-item">
+                            <div>
+                                <span class="name">Fire Drill</span>
+                            </div>
+                            <div>
+                                <span class="oj-text-xs oj-text-secondary-color">Mumbai: Fire Drill on 28th September</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li data-bind="click: goToViewNotices">
+                        <div class="recent-list-item">
+                            <div>
+                                <span class="name">Table Tennis Tournament</span>
+                            </div>
+                            <div>
+                                <span class="oj-text-xs oj-text-secondary-color">India: National Table Tennis Tournament</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li data-bind="click: goToViewNotices">
+                        <div class="recent-list-item">
+                            <div>
+                                <span class="name">Oracle Outreach Program</span>
+                            </div>
+                            <div>
+                                <span class="oj-text-xs oj-text-secondary-color">Worldwide: Oracle's New Outreach Programs</span>
+                            </div>
+                         </div>
+                    </li>
+                </ul>
+            </oj-list-view>
         </div>
     </div>
-    <div class="oj-flex oj-sm-flex-items-1 dashboard-row2">
-        <div class="oj-flex-item">
-            <h4>Recent Notices</h4>
-            <oj-list-view selection-mode="none">
-            <ul>
-                <li>
-                    <div class="container">
-                        <div>
-                            <span class="name">Amy Bartlet</span>
-                        </div>
-                        <div>
-                            <span class="oj-text-xs oj-text-secondary-color">Vice President</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="container">
-                        <div>
-                            <span class="name">Andy Jones</span>
-                        </div>
-                        <div>
-                            <span class="oj-text-xs oj-text-secondary-color">Director</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="container">
-                        <div>
-                            <span class="name">Andrew Bugsy</span>
-                        </div>
-                        <div>
-                            <span class="oj-text-xs oj-text-secondary-color">Individual Contributer</span>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="container">
-                        <div>
-                            <span class="name">Annett Barnes</span>
-                        </div>
-                        <div>
-                            <span class="oj-text-xs oj-text-secondary-color">Individual Contributer</span>
-                        </div>
-                     </div>
-                </li>
-            </ul>
-        </oj-list-view>
-        </div>
+    <div class="oj-flex-item">
         <div class="oj-flex-item">
             <div data-bind="click: openSlideShow"
-                    style="width: 300px; height: 200px; position: relative; margin: auto;background-color: black;">
+                    style="width: 400px; height: 300px; position: relative; margin: auto;background-color: black;">
                 <span class="slideshow-play-btn">
                     <i class="fas fa-play-circle"></i>
                 </span>
@@ -74,20 +80,21 @@ View recent notices or submit a new one.
 </div>
 
 
+
 <oj-dialog style="display:none; width: 100vw; height: 100vh;" id="slideshowDialog"
             cancel-behavior="escape">
     <div slot="body">
         <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center">
             <div class="oj-flex-item" id="slideshow">
                 <div>
-                    <img data-bind="attr: {src: locations[0]}" style="width: 50vh; height: 70vh">
+                    <img data-bind="attr: {src: locations[0]}" style="width: 60vh; height: 85vh">
                 </div>
                 <div>
-                    <img data-bind="attr: {src: locations[1]}" style="width: 50vh; height: 70vh">
+                    <img data-bind="attr: {src: locations[1]}" style="width: 60vh; height: 85vh">
                 </div>
             </div>
         </div>
     </div>
 </oj-dialog>
 
-<oj-button on-oj-action="[[goToViewNotices]]">View Notices</oj-button>
+<!-- <oj-button on-oj-action="[[goToViewNotices]]">View Notices</oj-button> -->
