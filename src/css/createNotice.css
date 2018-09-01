@@ -1,0 +1,11 @@
+.new-notice-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+#loader img, #tick img {
+    position: fixed;
+    top: 50%;
+    right: 50%;
+    transform: translate3d(50%, -50%, 0);
+}

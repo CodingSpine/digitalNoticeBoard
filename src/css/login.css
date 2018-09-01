@@ -1,0 +1,42 @@
+.login-page::after {
+    content: "";
+  background: url(images/BackgroundCompetition.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.login-panel {
+    position: fixed;
+    top: 40%;
+    right: 50%;
+    width: 390px;
+    height: 205px;
+    transform: translate(50%, -50%);
+    text-align: center;
+    background-color: #50aaea;
+    color: white;
+    border-radius: 5px;
+}
+
+.login-button {
+    width: 150px;
+    padding: 0 2px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+}
+
+.login-button button {
+    border-radius: 16px;
+    background-color: #2EE59D !important;
+    color: white !important;
+    border: none !important;
+}

@@ -1,0 +1,23 @@
+.circlebutton {
+    width: 35px;
+    height: 35px;
+    padding: 5px 8px;
+    margin: 0 2px;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 25px;
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    user-select: none;
+    background-image: none;
+    -webkit-appearance: button;
+}

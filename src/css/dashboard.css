@@ -1,0 +1,85 @@
+.dashboard-primary-section {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.review-btn {
+    width:100px;
+    position:relative;
+    line-height:50px;
+}
+
+.review-btn button {
+    background-color: #8F3F9F !important;
+    border-color: transparent !important;
+    color: white !important;
+}
+
+.fa-gavel {
+    color: white;
+}
+
+.notification {
+    position:absolute;
+    left:-7px;
+    top:-7px;
+    background-color:red;
+    line-height:22px;
+    width:23px;
+    height:22px;
+    border-radius:11px;
+    font-weight: bold;
+    color: white;
+}
+
+.recent-list {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.recent-list-item {
+    cursor: pointer;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.slideshow-play-btn {
+    position: absolute;
+    top: 50%; l
+    eft: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    margin: auto;
+    font-size: 55px;
+    cursor: pointer;
+    color: aliceblue;
+}
+
+#slideshowDialog .oj-dialog-header{
+    background: black;
+    border: none;
+}
+
+#slideshowDialog .oj-dialog-content{
+    background: black;
+}
+
+#slideshow {
+    margin: 0 auto;
+    position: relative;
+    width: 60vh;
+    height: 85vh;
+    /* padding: 10px; */
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+#slideshow > div {
+    position: absolute;
+    /* top: 10px; */
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
