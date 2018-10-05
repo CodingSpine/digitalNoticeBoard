@@ -1,28 +1,33 @@
 <div class="blue-header">
 View Notices
 </div>
-<oj-button on-oj-action="[[returnHome]]" style="margin: 10px 0 0 10px">
-    <span slot='startIcon'><i class="fas fa-home"></i></span>
-    Home
-</oj-button>
+<div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-space-between" style="width: 90%; margin: auto;">
+    <div class="oj-flex-item">
+        <oj-button on-oj-action='[[returnHome]]'>
+            <span slot='startIcon'><i class="fas fa-home"></i></span>
+            Home
+        </oj-button>
+    </div>
+    <div class="oj-flex-item">
+        <a style="border-radius: 50%; user-select: none; border: none; display: inline-block;padding: 8px 16px;vertical-align: middle;overflow: hidden;text-decoration: none;font-size: 25px;text-align: center;cursor: pointer;white-space: nowrap;
+        line-height: 1.5; background-color: darkorange; color: white" class="filter-button"
+        data-bind="click: openFilter"><i class="fas fa-filter"></i></a>
+    </div>
+</div>
 <div class="filmstrip-primary">
-    <oj-film-strip
-                 arrow-placement="adjacent"
-                 arrow-visibility="visible"
-                 current-item.index="[[clickedIndex]]">
-              <!-- ko foreach: chemicals -->
-              <div class="oj-panel oj-panel-alt2 primary-filmstrip-item"
-                   data-bind="style: {
-                     display: $parent.getItemInitialDisplay($index())}">
-                <img data-bind="attr: {src: location}" style="width: 48vh; height: 60vh">
-              </div>
-              <!-- /ko -->
-            </oj-film-strip>
+    <oj-film-strip id='filmStrip1' arrow-placement="adjacent" arrow-visibility="visible" current-item.index="[[clickedIndex]]">
+    <!-- ko foreach: images -->
+        <div class="oj-panel oj-panel-alt2 primary-filmstrip-item"
+             data-bind="style: {display: $parent.getItemInitialDisplay($index())}">
+            <img data-bind="attr: {src: location}" style="width: 48vh; height: 60vh">
+        </div>
+    <!-- /ko -->
+</oj-film-strip>
 </div>
 
 <div class="filmstrip-paging">
-    <oj-film-strip id="filmStrip" style="margin-top: 5px;" arrow-visibility="hidden" data-oj-context>
-        <!-- ko foreach: chemicals -->
+    <oj-film-strip id="filmStrip2" style="margin-top: 5px;" arrow-visibility="hidden" data-oj-context>
+        <!-- ko foreach: images -->
         <div class="oj-panel oj-panel-alt2 thumbnail-filmstrip-item"
              data-bind="style: {
                display: $parent.getItemInitialDisplay($index())}, click: function(){$parent.thumbnailClick($index())}">
@@ -32,8 +37,97 @@ View Notices
     </oj-film-strip>
     <div style="text-align: center;">
         <div style="display: inline-block;">
-            <oj-paging-control data="[[pagingModel]]" page-size="0" page-options='{"type": "dots"}'>
+            <oj-paging-control id='pagingControl' data="[[pagingModel]]" page-size="0" page-options='{"type": "dots"}'>
             </oj-paging-control>
         </div>
     </div>
 </div>
+
+
+<oj-dialog style="display:none; width: 60vh" id="modalDialog1" title="Geographical Filter">
+    <div slot="body">
+        <div class="oj-form-layout" id="form-container">
+          <div class="oj-form">
+              <div class="oj-flex oj-sm-flex-items-initial oj-sm-justify-content-center" data-bind="visible: selectedCountry() !== undefined">
+                  <div class="oj-flex-item">
+                      <oj-button on-click="[[clearAllFilters]]">
+                          <span slot='startIcon'><i class="fas fa-eraser"></i></span>Clear All
+                      </oj-button>
+                  </div>
+                  <br>
+              </div>
+            <div class="oj-flex oj-sm-only-flex-direction-column">
+              <div class="oj-flex-item" data-bind="css: {'oj-md-2': selectedCountry() !== undefined, 'oj-md-3': selectedCountry() === undefined}">
+                <oj-label for="control1" class="oj-md-label-inline">Country</oj-label>
+              </div>
+              <div class="oj-md-8 oj-flex-item">
+                  <oj-combobox-one id="combobox" style="max-width:20em" value="{{selectedCountry}}">
+                      <!-- ko foreach: countries -->
+                      <oj-option value="[[value]]"><span data-bind="text: label"></span></oj-option>
+                      <!-- /ko -->
+                    </oj-combobox-one>
+              </div>
+              <div class="oj-md-2 oj-flex-item" data-bind="if : selectedCountry() !== undefined">
+                &nbsp;
+                <oj-button data-bind="click: function(){selectedCountry(undefined)}" display="icons">
+                    <span slot='startIcon'><i class="fas fa-times"></i></span>
+                </oj-button>
+              </div>
+            </div>
+            <div class="oj-flex oj-sm-only-flex-direction-column">
+              <!-- ko if: states().length > 0 -->
+                  <div class="oj-md-2 oj-flex-item">
+                    <oj-label for="control1" class="oj-md-label-inline">State</oj-label>
+                  </div>
+                  <div class="oj-md-8 oj-flex-item">
+                      <oj-combobox-one id="combobox" style="max-width:20em" value="{{selectedState}}">
+                          <!-- ko foreach: states -->
+                          <oj-option value="[[value]]"><span data-bind="text: label"></span></oj-option>
+                          <!-- /ko -->
+                        </oj-combobox-one>
+                  </div>
+                  <div class="oj-md-2 oj-flex-item" data-bind="visible : selectedState() !== undefined">
+                      &nbsp;
+                    <oj-button data-bind="click: function(){selectedState(undefined)}" display="icons">
+                        <span slot='startIcon'><i class="fas fa-times"></i></span>
+                    </oj-button>
+                  </div>
+              <!-- /ko -->
+            </div>
+            <div class="oj-flex oj-sm-only-flex-direction-column">
+              <!-- ko if: cities().length > 0 -->
+                  <div class="oj-md-2 oj-flex-item">
+                    <oj-label for="control1" class="oj-md-label-inline">City</oj-label>
+                  </div>
+                  <div class="oj-md-8 oj-flex-item">
+                      <oj-combobox-one id="combobox" style="max-width:20em" value="{{selectedCity}}">
+                          <!-- ko foreach: cities -->
+                          <oj-option value="[[value]]"><span data-bind="text: label"></span></oj-option>
+                          <!-- /ko -->
+                        </oj-combobox-one>
+                  </div>
+                  <div class="oj-md-2 oj-flex-item" data-bind="visible : selectedCity() !== undefined">
+                      &nbsp;
+                    <oj-button data-bind="click: function(){selectedCity(undefined)}" display="icons">
+                        <span slot='startIcon'><i class="fas fa-times"></i></span>
+                    </oj-button>
+                  </div>
+              <!-- /ko -->
+            </div>
+          </div>
+        </div>
+    </div>
+    <div slot="footer">
+        <div class="oj-flex oj-sm-flex-items-initial">
+            <div class="oj-flex-item">
+                <oj-button on-click="[[applyFilter]]"> Apply
+                </oj-button>
+            </div>
+            <div class="oj-flex-item">
+                <oj-button on-click="[[closeFilter]]">Cancel</oj-button>
+            </div>
+        </div>
+
+
+    </div>
+</oj-dialog>

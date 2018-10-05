@@ -13,8 +13,10 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'globalContext', 'ojs/ojlistview', '
                 '../../css/images/2.jpg'
             ];
 
-            self.goToViewNotices = function(){
+            self.goToViewNotices = function(data, event){
+                var itemNumber = parseInt(event.currentTarget.id.split('item')[1]);
                 var router = oj.Router.rootInstance;
+                router.store({'itemNumber': itemNumber});
                 router.go('viewNotices');
             };
 
